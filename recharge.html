@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="assets/js/recharge.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recharge Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/recharge.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="top-header">
+      <div class="left">
+        <a href="home-page.html" class="back-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </a>
+        <span class="title">Recharge Center</span>
+      </div>
+      <div class="right">
+        <a href="#" class="log-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            ></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <line x1="10" y1="9" x2="8" y2="9"></line>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- BALANCE CARD -->
+      <section class="balance-card">
+        <div class="card-title">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="wallet-icon"
+          >
+            <path
+              d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"
+            ></path>
+            <path d="M21 12H17a2 2 0 0 0 0 4h4"></path>
+          </svg>
+          My Balance
+        </div>
+        <div class="card-amount">₹0.00 <span class="currency">INR</span></div>
+      </section>
+
+      <!-- RECHARGE AMOUNT -->
+      <section class="recharge-section">
+        <div class="section-header">
+          <h2>Recharge amount</h2>
+          <div class="line-indicator">
+            <span class="dot"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+        <div class="input-wrapper">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="input-icon"
+          >
+            <path
+              d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"
+            ></path>
+            <path d="M21 12H17a2 2 0 0 0 0 4h4"></path>
+          </svg>
+          <input type="text" value="10" />
+        </div>
+      </section>
+
+      <!-- QUICK SELECT -->
+      <section class="quick-select-section">
+        <h2>Quick Select</h2>
+        <div class="quick-grid">
+          <div class="quick-btn active">₹10</div>
+          <div class="quick-btn">₹50</div>
+          <div class="quick-btn">₹100</div>
+          <div class="quick-btn">₹500</div>
+          <div class="quick-btn">₹1000</div>
+          <div class="quick-btn">₹5000</div>
+        </div>
+      </section>
+
+      <!-- PAYMENT METHOD -->
+      <section class="payment-method-section">
+        <h2>Payment Method</h2>
+        <div class="payment-option">
+          <div class="checkbox active">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="method-name">Bank Card</span>
+        </div>
+      </section>
+    </main>
+
+    <!-- BOTTOM BUTTON -->
+    <div class="submit-wrapper">
+      <button class="submit-btn">Submit recharge</button>
+    </div>
+  </body>
+</html>
