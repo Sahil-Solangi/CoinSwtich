@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Info</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #ffffff;
+  background:
+    radial-gradient(1200px 540px at 50% -180px, rgba(19, 44, 112, 0.58), rgba(2, 8, 29, 0) 74%),
+    radial-gradient(900px 320px at 36% 68%, rgba(10, 106, 101, 0.12), rgba(2, 8, 29, 0) 70%),
+    radial-gradient(900px 300px at 56% 78%, rgba(17, 88, 175, 0.12), rgba(2, 8, 29, 0) 68%),
+    linear-gradient(180deg, #040b27 0%, #010616 100%);
+  overflow-x: hidden;
+}
+
+.page {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: 18px 16px 112px;
+  position: relative;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(120, 179, 255, 0.55) 0.8px, transparent 1px),
+    radial-gradient(circle, rgba(52, 193, 255, 0.35) 0.8px, transparent 1px);
+  background-size: 160px 130px, 210px 170px;
+  background-position: 15px 40px, 90px 90px;
+  opacity: 0.28;
+}
+
+.avatar-wrap {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 20px;
+  padding: 7px;
+  border-radius: 50%;
+  border: 2px solid rgba(129, 153, 245, 0.85);
+  box-shadow: 0 0 12px rgba(96, 147, 255, 0.55);
+  background: rgba(36, 53, 118, 0.36);
+  position: relative;
+  z-index: 1;
+}
+
+.avatar-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(6, 20, 70, 0.86), rgba(4, 16, 62, 0.92));
+  border: 1px solid rgba(88, 113, 191, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(13, 29, 84, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.stats {
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 42px;
+  row-gap: 10px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(89, 137, 255, 0.22);
+}
+
+.c-blue { background: linear-gradient(180deg, #2f76ff, #1d4ed8); }
+.c-green { background: linear-gradient(180deg, #25d8b2, #05a888); }
+.c-amber { background: linear-gradient(180deg, #ffc14c, #ff9900); }
+.c-gray { background: linear-gradient(180deg, #8c96ad, #5a6376); }
+.c-red { background: linear-gradient(180deg, #ff514f, #d62927); }
+
+.stat strong,
+.menu span,
+.menu b {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.menu span,
+.menu b {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.meta {
+  font-size: 16px;
+  color: rgba(221, 233, 255, 0.64);
+  margin-top: 2px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.section-title {
+  margin: 18px 0 10px;
+  font-size: 34px;
+  letter-spacing: 0.2px;
+  position: relative;
+  z-index: 1;
+}
+
+.menu {
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(117, 140, 210, 0.14);
+  cursor: pointer;
+  min-height: 74px;
+}
+
+.menu-item:last-child {
+  border-bottom: 0;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.arrow {
+  color: rgba(196, 211, 255, 0.44);
+  font-size: 30px;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.danger {
+  color: #ff4b56;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 8px;
+  width: min(100%, 1040px);
+  transform: translateX(-50%);
+  padding: 0 16px;
+  z-index: 3;
+}
+
+.nav-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(95, 123, 209, 0.24);
+  background: rgba(7, 22, 67, 0.74);
+  color: #8fa2cc;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px rgba(11, 37, 107, 0.2);
+}
+
+.nav-btn.active {
+  color: #50a2ff;
+  border-color: rgba(70, 145, 255, 0.8);
+  box-shadow: 0 0 14px rgba(42, 138, 255, 0.65), inset 0 0 0 1px rgba(76, 148, 255, 0.25);
+}
+
+@media (max-width: 960px) {
+  .stat strong,
+  .menu span,
+  .menu b {
+    font-size: 14px;
+  }
+
+  .meta {
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section-title {
+    font-size: 27px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  .menu-item {
+    min-height: 60px;
+  }
+
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="avatar-wrap">
+    <img src="./avatar.svg" alt="Avatar">
+  </div>
+
+  <section class="card stats">
+    <div class="stat">
+      <div class="circle c-blue">⛁</div>
+      <div>
+        <strong>0.00</strong>
+        <div class="meta">My Balance</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="circle c-amber">🔒</div>
+      <div>
+        <strong>0</strong>
+        <div class="meta">Frozen</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="circle c-green">⇡</div>
+      <div>
+        <strong>100</strong>
+        <div class="meta">Credit Score</div>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="circle c-green">☆</div>
+      <div>
+        <strong>VIP1</strong>
+        <div class="meta">Level</div>
+      </div>
+    </div>
+  </section>
+
+  <h1 class="section-title">Account Settings</h1>
+
+  <section class="card menu">
+    <div class="menu-item">
+      <div class="menu-left">
+        <div class="circle c-blue">💬</div>
+        <span>User Messages</span>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-left">
+        <div class="circle c-green">?</div>
+        <span>About Us</span>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-left">
+        <div class="circle c-gray">⚙</div>
+        <span>Settings</span>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+    <div class="menu-item">
+      <div class="menu-left">
+        <div class="circle c-red">↪</div>
+        <b class="danger">Sign out</b>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <div class="nav-row">
+    <button class="nav-btn" type="button">⌂</button>
+    <button class="nav-btn" type="button">▭</button>
+    <button class="nav-btn" type="button">☰</button>
+    <button class="nav-btn active" type="button">👤</button>
+  </div>
+</nav>
+</body>
+</html>
