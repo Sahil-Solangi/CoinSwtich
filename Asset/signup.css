@@ -1,0 +1,424 @@
+* {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at 55% 45%,
+    #0c1a2e 0%,
+    #070e1d 55%,
+    #040b16 100%
+  );
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Background glows ── */
+.glow-bl {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 140, 70, 0.2) 0%,
+    transparent 70%
+  );
+  bottom: -70px;
+  left: -60px;
+  pointer-events: none;
+}
+.glow-tr {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 110, 180, 0.12) 0%,
+    transparent 70%
+  );
+  top: -40px;
+  right: -30px;
+  pointer-events: none;
+}
+
+/* ── Scatter dots ── */
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.d1 {
+  width: 4px;
+  height: 4px;
+  background: #00d4c2;
+  opacity: 0.45;
+  top: 48px;
+  left: 345px;
+}
+.d2 {
+  width: 3px;
+  height: 3px;
+  background: #00d4c2;
+  opacity: 0.35;
+  top: 80px;
+  left: 90px;
+}
+.d3 {
+  width: 4px;
+  height: 4px;
+  background: #00d4c2;
+  opacity: 0.5;
+  top: 138px;
+  left: 50px;
+}
+.d4 {
+  width: 3px;
+  height: 3px;
+  background: #00d4c2;
+  opacity: 0.35;
+  top: 410px;
+  left: 148px;
+}
+.d5 {
+  width: 5px;
+  height: 5px;
+  background: #22c55e;
+  opacity: 0.55;
+  top: 590px;
+  left: 205px;
+}
+.d6 {
+  width: 3px;
+  height: 3px;
+  background: #00d4c2;
+  opacity: 0.3;
+  top: 670px;
+  left: 400px;
+}
+.d7 {
+  width: 4px;
+  height: 4px;
+  background: #00d4c2;
+  opacity: 0.4;
+  top: 78px;
+  right: 350px;
+}
+.d8 {
+  width: 4px;
+  height: 4px;
+  background: #00d4c2;
+  opacity: 0.45;
+  top: 230px;
+  right: 95px;
+}
+.d9 {
+  width: 5px;
+  height: 5px;
+  background: #22c55e;
+  opacity: 0.5;
+  top: 320px;
+  right: 38px;
+}
+.d10 {
+  width: 3px;
+  height: 3px;
+  background: #00d4c2;
+  opacity: 0.35;
+  top: 660px;
+  right: 270px;
+}
+.d11 {
+  width: 4px;
+  height: 4px;
+  background: #00d4c2;
+  opacity: 0.4;
+  top: 740px;
+  right: 135px;
+}
+.d12 {
+  width: 5px;
+  height: 5px;
+  background: #22c55e;
+  opacity: 0.5;
+  top: 820px;
+  right: 285px;
+}
+
+/* ── Back button (top-left) ── */
+.btn-back {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(100, 80, 200, 0.45);
+  border-radius: 8px;
+  background: rgba(60, 40, 130, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.btn-back:hover {
+  background: rgba(80, 60, 180, 0.32);
+}
+.btn-back svg {
+  width: 16px;
+  height: 16px;
+  stroke: #a78bfa;
+  fill: none;
+  stroke-width: 2.2;
+}
+
+/* ── Top-right icon buttons ── */
+.top-right {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  display: flex;
+  gap: 10px;
+}
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(0, 210, 195, 0.4);
+  border-radius: 8px;
+  background: rgba(0, 210, 195, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+.icon-btn:hover {
+  background: rgba(0, 210, 195, 0.14);
+}
+.icon-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #00d4c2;
+  fill: none;
+  stroke-width: 1.7;
+}
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid #040b16;
+}
+.badge-green {
+  background: #22c55e;
+}
+.badge-teal {
+  background: #06b6d4;
+}
+
+/* ── Page center ── */
+.page-center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px 40px;
+}
+
+/* ── Avatar ── */
+.avatar a img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 38% 35%,
+    #4e35c8 0%,
+    #2b1a90 55%,
+    #180f60 100%
+  );
+  border: 2px solid rgba(120, 80, 255, 0.35);
+  box-shadow:
+    0 0 28px rgba(100, 60, 240, 0.4),
+    0 0 55px rgba(70, 30, 200, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* ── Heading ── */
+.heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.heading span {
+  color: #a78bfa;
+}
+.subheading {
+  font-size: 13px;
+  color: rgba(170, 185, 220, 0.6);
+  margin-bottom: 28px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── Card ── */
+.card {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(12, 20, 42, 0.72);
+  border: 1px solid rgba(70, 50, 160, 0.22);
+  border-radius: 18px;
+  padding: 30px 30px 26px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Input / Select groups ── */
+.input-group {
+  position: relative;
+  margin-bottom: 16px;
+}
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  stroke: #7c5cf6;
+  fill: none;
+  stroke-width: 1.8;
+  pointer-events: none;
+}
+.input-field,
+.select-field {
+  width: 100%;
+  padding: 13px 44px 13px 42px;
+  background: rgba(18, 30, 60, 0.8);
+  border: 1px solid rgba(70, 50, 160, 0.28);
+  border-radius: 10px;
+  color: rgba(175, 190, 230, 0.6);
+  font-size: 13.5px;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.input-field::placeholder {
+  color: rgba(155, 175, 220, 0.45);
+}
+.input-field:focus,
+.select-field:focus {
+  border-color: rgba(110, 70, 230, 0.5);
+  box-shadow: 0 0 0 3px rgba(100, 60, 220, 0.12);
+}
+/* Dropdown caret */
+.caret-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  stroke: rgba(140, 120, 220, 0.6);
+  fill: none;
+  stroke-width: 2;
+  pointer-events: none;
+}
+/* Eye toggle */
+.toggle-pw {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.toggle-pw svg {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(130, 110, 220, 0.6);
+  fill: none;
+  stroke-width: 1.8;
+}
+.toggle-pw:hover svg {
+  stroke: #a78bfa;
+}
+
+/* ── Register button ── */
+.btn-register {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #5b21b6 0%, #7c3aed 45%, #6d28d9 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: 0 4px 22px rgba(100, 40, 220, 0.4);
+  transition:
+    opacity 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+.btn-register:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(100, 40, 220, 0.55);
+}
+.btn-register:active {
+  transform: translateY(0);
+}
+
+/* ── Sign in link ── */
+.signin-row {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: rgba(165, 180, 225, 0.6);
+}
+.signin-row a {
+  color: #7c5cf6;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.signin-row a:hover {
+  text-decoration: underline;
+}

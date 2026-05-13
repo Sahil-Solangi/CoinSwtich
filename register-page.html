@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoinSwitch – Create Account</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Asset/signup.css" />
+  </head>
+  <body>
+    <!-- Background glows -->
+    <div class="glow-bl"></div>
+    <div class="glow-tr"></div>
+
+    <!-- Scatter dots -->
+    <div class="dot d1"></div>
+    <div class="dot d2"></div>
+    <div class="dot d3"></div>
+    <div class="dot d4"></div>
+    <div class="dot d5"></div>
+    <div class="dot d6"></div>
+    <div class="dot d7"></div>
+    <div class="dot d8"></div>
+    <div class="dot d9"></div>
+    <div class="dot d10"></div>
+    <div class="dot d11"></div>
+    <div class="dot d12"></div>
+
+    <!-- Back button (top-left) -->
+    <a href="login-page.html" class="btn-back" id="btn-back" title="Go back">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+    </a>
+
+    <!-- Top-right icon buttons -->
+    <div class="top-right">
+      <button class="icon-btn" id="btn-globe" title="Language">
+        <span class="badge badge-green"></span>
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path
+            d="M3.6 9h16.8M3.6 15h16.8M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"
+          />
+        </svg>
+      </button>
+      <button class="icon-btn" id="btn-headset" title="Support">
+        <span class="badge badge-teal"></span>
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+          <path
+            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Page center -->
+    <div class="page-center">
+      <!-- Avatar -->
+      <div class="avatar">
+        <a href=""><img src="Asset/CoinSwtich.png" alt="" /></a>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="heading">Create <span>Account</span></h1>
+      <p class="subheading">Join the future of digital assets</p>
+
+      <!-- Signup card -->
+      <div class="card">
+        <!-- Country region dropdown -->
+        <div class="input-group">
+          <svg
+            class="input-icon"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <path
+              d="M3.6 9h16.8M3.6 15h16.8M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"
+            />
+          </svg>
+          <select id="country" class="select-field">
+            <option value="" disabled selected>
+              Select your country region
+            </option>
+            <option value="US">United States</option>
+            <option value="GB">United Kingdom</option>
+            <option value="PK">Pakistan</option>
+            <option value="IN">India</option>
+            <option value="AE">UAE</option>
+            <option value="SG">Singapore</option>
+            <option value="AU">Australia</option>
+            <option value="CA">Canada</option>
+            <option value="DE">Germany</option>
+            <option value="FR">France</option>
+            <option value="JP">Japan</option>
+            <option value="CN">China</option>
+          </select>
+          <svg
+            class="caret-icon"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+
+        <!-- Register account (username) -->
+        <div class="input-group">
+          <svg
+            class="input-icon"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg>
+          <input
+            id="reg-account"
+            type="text"
+            class="input-field"
+            placeholder="Register Account"
+            autocomplete="username"
+          />
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <svg
+            class="input-icon"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <input
+            id="password"
+            type="password"
+            class="input-field"
+            placeholder="Enter your account password"
+            autocomplete="new-password"
+          />
+          <button
+            class="toggle-pw"
+            id="toggle-pw1"
+            type="button"
+            title="Show/Hide"
+          >
+            <svg
+              id="eye1"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Confirm password -->
+        <div class="input-group">
+          <svg
+            class="input-icon"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <input
+            id="confirm-password"
+            type="password"
+            class="input-field"
+            placeholder="Confirm your password"
+            autocomplete="new-password"
+          />
+          <button
+            class="toggle-pw"
+            id="toggle-pw2"
+            type="button"
+            title="Show/Hide"
+          >
+            <svg
+              id="eye2"
+              viewBox="0 0 24 24"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Invitation code -->
+        <div class="input-group" style="margin-bottom: 0">
+          <svg
+            class="input-icon"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+            <line x1="6" y1="1" x2="6" y2="4" />
+            <line x1="10" y1="1" x2="10" y2="4" />
+            <line x1="14" y1="1" x2="14" y2="4" />
+          </svg>
+          <input
+            id="invite-code"
+            type="text"
+            class="input-field"
+            placeholder="Enter invitation code"
+            autocomplete="off"
+          />
+        </div>
+
+        <!-- Register button -->
+        <button class="btn-register" id="btn-register" type="button">
+          Register
+        </button>
+
+        <!-- Sign in link -->
+        <p class="signin-row">
+          Do you have an account?
+          <a href="login-page.html" id="link-signin">Sign in</a>
+        </p>
+      </div>
+    </div>
+    <script>
+      const eyeOpen = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>`;
+      const eyeClosed = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>`;
+
+      function makeToggle(btnId, inputId, eyeId) {
+        document.getElementById(btnId).addEventListener("click", () => {
+          const inp = document.getElementById(inputId);
+          const eye = document.getElementById(eyeId);
+          const hidden = inp.type === "password";
+          inp.type = hidden ? "text" : "password";
+          eye.innerHTML = hidden ? eyeClosed : eyeOpen;
+        });
+      }
+      makeToggle("toggle-pw1", "password", "eye1");
+      makeToggle("toggle-pw2", "confirm-password", "eye2");
+
+      // Register button
+      document.getElementById("btn-register").addEventListener("click", () => {
+        const country = document.getElementById("country").value;
+        const account = document.getElementById("reg-account").value.trim();
+        const pw = document.getElementById("password").value;
+        const cpw = document.getElementById("confirm-password").value;
+        const invite = document.getElementById("invite-code").value.trim();
+
+        if (!country) {
+          alert("Please select your country region.");
+          return;
+        }
+        if (!account) {
+          alert("Please enter a register account name.");
+          return;
+        }
+        if (!pw) {
+          alert("Please enter a password.");
+          return;
+        }
+        if (pw !== cpw) {
+          alert("Passwords do not match.");
+          return;
+        }
+        // Invitation code is optional – skip check if not required
+        window.location.href = "login.html";
+      });
+    </script>
+  </body>
+</html>

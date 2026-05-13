@@ -1,0 +1,386 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-darkest: #111217;
+  --bg-card-gradient: linear-gradient(135deg, #441c25, #311c2a);
+  --bg-input: #181a20;
+  --border: #23252f;
+  --text-main: #ffffff;
+  --text-sub: #787b86;
+  --btn-blue: #646df4;
+  --btn-red: #ea3d4a;
+  --icon-color: #d1d8e0;
+}
+
+body {
+  background: var(--bg-darkest);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--bg-darkest);
+}
+
+.top-header .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back-btn {
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.back-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.top-header .title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.log-btn {
+  color: var(--icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+main {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+/* BALANCE CARD */
+.balance-card {
+  background: var(--bg-card-gradient);
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0d1d6;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-title .wallet-icon {
+  width: 18px;
+  height: 18px;
+  color: #db7680;
+}
+
+.card-amount {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.card-amount .currency {
+  font-size: 14px;
+  color: #db7680;
+  font-weight: 600;
+}
+
+/* CHANNEL */
+.channel-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.channel-label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.channel-btn {
+  background: var(--btn-blue);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* FORM GROUPS */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group label .min-amount {
+  font-size: 12px;
+  color: var(--text-sub);
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.select-wrapper,
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.select-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.dropdown-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-sub);
+}
+
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  width: 100%;
+}
+
+.input-wrapper input::placeholder {
+  color: #555866;
+}
+
+.input-wrapper.with-button {
+  padding-right: 12px;
+}
+
+.total-btn {
+  background: transparent;
+  border: 1px solid var(--btn-red);
+  color: var(--btn-red);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* BOTTOM BUTTON */
+.submit-wrapper {
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--btn-red);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE FIX
+   ========================= */
+
+body {
+  overflow-x: hidden;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  main {
+    padding: 16px;
+  }
+
+  .balance-card {
+    padding: 20px;
+  }
+
+  .card-amount {
+    font-size: 26px;
+  }
+}
+
+/* Large phones */
+@media (max-width: 768px) {
+  .top-header {
+    padding: 14px 16px;
+  }
+
+  main {
+    padding: 14px;
+  }
+
+  .balance-card {
+    padding: 18px;
+  }
+
+  .card-amount {
+    font-size: 24px;
+  }
+
+  .channel-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .channel-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .select-wrapper,
+  .input-wrapper {
+    padding: 12px 14px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .top-header {
+    padding: 12px;
+  }
+
+  .top-header .title {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  .balance-card {
+    padding: 16px;
+  }
+
+  .card-amount {
+    font-size: 20px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .select-value,
+  .input-wrapper input {
+    font-size: 14px;
+  }
+
+  .total-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .submit-btn {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .card-amount {
+    font-size: 18px;
+  }
+
+  .channel-btn {
+    font-size: 11px;
+  }
+}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  background: #0b1221;
+  border-top: 1px solid #162035;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+  padding: 4px 16px;
+  text-decoration: none;
+}
+.nav-item.active {
+  opacity: 1;
+}
+.nav-item svg {
+  width: 22px;
+  height: 22px;
+}
+.nav-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-item.active .nav-icon-wrap {
+  background: linear-gradient(135deg, #1a4a8a, #0b5ed7);
+  box-shadow: 0 4px 14px #0b5ed740;
+}
+.submit-wrapper {
+  padding-bottom: 80px; /* Make space for nav */
+}

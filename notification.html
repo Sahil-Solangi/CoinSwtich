@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications - CoinSwtich</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════ NOTIFICATION HEADER ═══════════════ -->
+    <header class="notif-header">
+      <div class="notif-header-left">
+        <a href="index.html" class="notif-back">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </a>
+        <h1 class="notif-title">Notifications</h1>
+      </div>
+      <div class="notif-header-right">
+        <span class="mark-read">Mark all read</span>
+      </div>
+    </header>
+
+    <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+    <main class="notif-main">
+      <div class="notif-list">
+        
+        <!-- Unread Item -->
+        <div class="notif-card unread">
+          <div class="notif-icon system">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div class="notif-content">
+            <h3>System Update Completed</h3>
+            <p>Our platform has been updated to improve trading speed and reliability.</p>
+            <span class="notif-time">2 mins ago</span>
+          </div>
+          <div class="unread-dot"></div>
+        </div>
+
+        <!-- Read Item -->
+        <div class="notif-card">
+          <div class="notif-icon deposit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="notif-content">
+            <h3>Deposit Successful</h3>
+            <p>Your deposit of 500.00 USDT has been credited to your account.</p>
+            <span class="notif-time">1 hour ago</span>
+          </div>
+        </div>
+
+        <!-- Read Item -->
+        <div class="notif-card">
+          <div class="notif-icon alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <div class="notif-content">
+            <h3>BTC Price Alert</h3>
+            <p>Bitcoin (BTC) has surged above $65,000. Check the trading hall for more details.</p>
+            <span class="notif-time">Yesterday</span>
+          </div>
+        </div>
+
+        <!-- Read Item -->
+        <div class="notif-card">
+          <div class="notif-icon promo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <div class="notif-content">
+            <h3>Welcome Bonus</h3>
+            <p>Claim your 10 USDT welcome bonus within the next 24 hours.</p>
+            <span class="notif-time">3 days ago</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <!-- ═══════════════ BOTTOM NAV ═══════════════ -->
+    <nav class="bottom-nav">
+      <!-- Home -->
+      <div class="nav-item" id="nav-home">
+        <div class="nav-icon-wrap">
+          <a href="index.html">
+            <svg
+              viewBox="0 0 24 24"
+              fill="white"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"
+              />
+              <path d="M9 21V12h6v9" fill="#0b5ed7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- Chart -->
+      <div class="nav-item" id="nav-chart">
+        <div class="nav-icon-wrap">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#6a7d9a"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M3 9h18M9 21V9" />
+          </svg>
+        </div>
+      </div>
+      <!-- Spot -->
+      <div class="nav-item" id="nav-spot">
+        <div class="nav-icon-wrap">
+          <a href="spot.html" style="color: inherit; display: flex; align-items: center; text-decoration: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6a7d9a" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- Notification -->
+      <div class="nav-item active" id="nav-notification">
+        <div class="nav-icon-wrap">
+          <a href="notification.html" style="color: inherit; display: flex; align-items: center; text-decoration: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <!-- Profile -->
+      <div class="nav-item" id="nav-profile">
+        <div class="nav-icon-wrap">
+          <a href="login.html"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#6a7d9a"
+              stroke-width="2"
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" /></svg
+          ></a>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

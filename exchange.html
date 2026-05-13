@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange - CoinSwtich</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/exchange.css" />
+    <script src="assets/js/exchange.js" defer></script>
+  </head>
+  <body>
+
+    <!-- ══ HEADER ══ -->
+    <header class="top-header">
+      <div class="header-left">
+        <a href="javascript:history.back()" class="back-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </a>
+        <h1>Exchange</h1>
+      </div>
+      <a href="#" class="history-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        History
+      </a>
+    </header>
+
+    <main>
+      <!-- LIVE RATE BANNER -->
+      <div class="rate-banner">
+        <div class="rate-banner-left">
+          <div class="live-dot"></div>
+          Live Rates
+        </div>
+        <div class="rate-text" id="bannerRate">Loading...</div>
+      </div>
+
+      <!-- SWAP CONTAINER -->
+      <div class="swap-container">
+
+        <!-- FROM CARD -->
+        <div class="swap-card" id="fromCard">
+          <div class="swap-card-label">From</div>
+          <div class="swap-card-body">
+            <!-- Coin Picker Trigger -->
+            <div class="coin-selector" id="fromSelector" onclick="openPicker('from')">
+              <div class="coin-selector-icon" id="fromIcon"></div>
+              <span class="coin-selector-name" id="fromName">BTC</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <!-- Amount Input -->
+            <div class="amount-input">
+              <input type="number" id="fromAmount" placeholder="0.00" min="0" step="any" />
+              <div class="fiat-equiv" id="fromFiat">≈ $0.00</div>
+            </div>
+          </div>
+          <div class="swap-card-footer">
+            <div class="balance-info">Available: <span id="fromBalance">0.00</span></div>
+            <div class="pct-buttons">
+              <button class="pct-btn" onclick="setPct(25)">25%</button>
+              <button class="pct-btn" onclick="setPct(50)">50%</button>
+              <button class="pct-btn" onclick="setPct(75)">75%</button>
+              <button class="pct-btn" onclick="setPct(100)">MAX</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLIP BUTTON -->
+        <div class="swap-flip-wrap">
+          <button class="swap-flip-btn" id="flipBtn" onclick="flipCoins()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- TO CARD -->
+        <div class="swap-card" id="toCard">
+          <div class="swap-card-label">To</div>
+          <div class="swap-card-body">
+            <div class="coin-selector" id="toSelector" onclick="openPicker('to')">
+              <div class="coin-selector-icon" id="toIcon"></div>
+              <span class="coin-selector-name" id="toName">USDT</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="amount-input">
+              <input type="number" id="toAmount" placeholder="0.00" readonly />
+              <div class="fiat-equiv" id="toFiat">≈ $0.00</div>
+            </div>
+          </div>
+          <div class="swap-card-footer">
+            <div class="balance-info">Available: <span id="toBalance">0.00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RATE INFO BOX -->
+      <div class="rate-info-box">
+        <div class="rate-row">
+          <span class="label">Exchange Rate</span>
+          <span class="value" id="exchangeRateDisplay">1 BTC = -- USDT</span>
+        </div>
+        <div class="rate-row">
+          <span class="label">Fee</span>
+          <span class="value green">0% (Free)</span>
+        </div>
+        <div class="rate-row">
+          <span class="label">You Receive</span>
+          <span class="value" id="receiveDisplay">-- USDT</span>
+        </div>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <div class="submit-wrap">
+        <button class="submit-btn" id="exchangeBtn" onclick="confirmExchange()">Exchange Now</button>
+      </div>
+    </main>
+
+    <!-- ══ SUCCESS OVERLAY ══ -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-card">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="success-title">Exchange Submitted!</div>
+        <div class="success-desc" id="successMsg">Your exchange request has been submitted.</div>
+        <button class="success-close-btn" onclick="closeSuccess()">Done</button>
+      </div>
+    </div>
+
+    <!-- ══ COIN PICKER MODAL ══ -->
+    <div class="picker-overlay" id="pickerOverlay" onclick="closePicker(event)">
+      <div class="picker-sheet" id="pickerSheet">
+        <div class="picker-header">
+          <span class="picker-title">Select Coin</span>
+          <button class="picker-close" onclick="closePicker(null, true)">×</button>
+        </div>
+        <div class="picker-search">
+          <input type="text" id="pickerSearch" placeholder="Search coin..." oninput="filterPicker(this.value)" />
+        </div>
+        <div class="picker-list" id="pickerList">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BOTTOM NAV ══ -->
+    <nav class="bottom-nav">
+      <div class="nav-item" id="nav-home">
+        <div class="nav-icon-wrap">
+          <a href="index.html" style="color: inherit; display: flex; align-items: center; text-decoration: none;">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z" />
+              <path d="M9 21V12h6v9" fill="#0b5ed7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" id="nav-chart">
+        <div class="nav-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6a7d9a" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <path d="M3 9h18M9 21V9" />
+          </svg>
+        </div>
+      </div>
+      <div class="nav-item" id="nav-spot">
+        <div class="nav-icon-wrap">
+          <a href="spot.html" style="color: inherit; display: flex; align-items: center; text-decoration: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6a7d9a" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" id="nav-notification">
+        <div class="nav-icon-wrap">
+          <a href="notification.html" style="color: inherit; display: flex; align-items: center; text-decoration: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6a7d9a" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="nav-item" id="nav-profile">
+        <div class="nav-icon-wrap">
+          <a href="userinfo.html" style="color: inherit; display: flex; align-items: center; text-decoration: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6a7d9a" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
